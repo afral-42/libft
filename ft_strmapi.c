@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abounoua <abounoua@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/06 09:18:57 by abounoua          #+#    #+#             */
-/*   Updated: 2025/11/06 11:24:34 by abounoua         ###   ########lyon.fr   */
+/*   Created: 2025/11/06 15:45:12 by abounoua          #+#    #+#             */
+/*   Updated: 2025/11/06 16:09:37 by abounoua         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_strcpy(char *dest, const char *src)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
+	char	*result;
+	size_t	len;
 	size_t	i;
 
+	len = ft_strlen(s);
+	result = malloc(sizeof(char) * (len + 1));
+	if (!result)
+		return (NULL);
 	i = 0;
-	while (src[i] != '\0')
+	while (i < len)
 	{
-		dest[i] = src[i];
+		result[i] = (*f)(i, s[i]);
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-char	*ft_strdup(const char *s)
-{
-	char	*dup;
-	size_t	len;
-
-	len = ft_strlen(s);
-	dup = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (!dup)
-		return (NULL);
-	ft_strcpy(dup, s);
-	return (dup);
+	result[i] = '\0';
+	return (result);
 }

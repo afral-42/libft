@@ -1,40 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abounoua <abounoua@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/06 09:18:57 by abounoua          #+#    #+#             */
-/*   Updated: 2025/11/06 11:24:34 by abounoua         ###   ########lyon.fr   */
+/*   Created: 2025/11/06 16:14:16 by abounoua          #+#    #+#             */
+/*   Updated: 2025/11/06 16:16:42 by abounoua         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_strcpy(char *dest, const char *src)
+void	ft_putchar_fd(char c, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-char	*ft_strdup(const char *s)
-{
-	char	*dup;
-	size_t	len;
-
-	len = ft_strlen(s);
-	dup = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (!dup)
-		return (NULL);
-	ft_strcpy(dup, s);
-	return (dup);
+	write(fd, &c, 1);
 }
