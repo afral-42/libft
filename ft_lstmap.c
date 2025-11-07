@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abounoua <abounoua@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 09:36:34 by abounoua          #+#    #+#             */
-/*   Updated: 2025/11/07 16:35:19 by abounoua         ###   ########lyon.fr   */
+/*   Created: 2025/11/07 17:17:07 by abounoua          #+#    #+#             */
+/*   Updated: 2025/11/07 17:26:41 by abounoua         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+// TO DO : gerer les erreurs d'allocation avec del et free pour free ce qui a ete alloue jusqu'a maintenant
+// Checker f et del
+
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if (!lst || !(*lst))
-	{
-		*lst = new;
-		(*lst)->next = NULL;
-	}
+	t_list	*new_list;
+
+	if (!lst)
+		return (NULL);
 	else
-		(ft_lstlast(*lst))->next = new;
+	{
+		new_list = ft_lstnew((*f)(lst->content));
+		lst = lst->next;
+	}
+	while (lst != NULL)
+	{
+		ft_lstadd_back(&new_list, (*f)(lst->content));
+		lst = lst->next;
+	}
+	return (new_list);
 }
