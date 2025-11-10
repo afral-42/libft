@@ -6,7 +6,7 @@
 /*   By: abounoua <abounoua@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 13:03:07 by abounoua          #+#    #+#             */
-/*   Updated: 2025/11/06 15:53:09 by abounoua         ###   ########lyon.fr   */
+/*   Updated: 2025/11/10 12:07:07 by abounoua         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static char	*extract_word(char const *s, char c)
 	size_t	len;
 	size_t	i;
 	char	*result;
-	
+
 	len = 0;
 	i = 0;
 	while (s[len] != '\0' && s[len] != c)

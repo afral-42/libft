@@ -6,7 +6,7 @@
 /*   By: abounoua <abounoua@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 08:32:36 by abounoua          #+#    #+#             */
-/*   Updated: 2025/11/10 09:25:53 by abounoua         ###   ########lyon.fr   */
+/*   Updated: 2025/11/10 12:05:53 by abounoua         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*result;
-	
+
 	if (!size || !nmemb)
 		return (malloc(0));
 	if (nmemb > SIZE_MAX / size)

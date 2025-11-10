@@ -6,7 +6,7 @@
 /*   By: abounoua <abounoua@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 14:56:56 by abounoua          #+#    #+#             */
-/*   Updated: 2025/11/06 15:53:57 by abounoua         ###   ########lyon.fr   */
+/*   Updated: 2025/11/10 12:11:24 by abounoua         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ char	*ft_itoa(int n)
 	if (!n)
 		return (ft_strdup("0"));
 	temp = (long)n;
-	result = malloc(sizeof(char) * (get_array_len(&index, n)) + 1);	
-	if (!result)	
+	result = malloc(sizeof(char) * (get_array_len(&index, n)) + 1);
+	if (!result)
 		return (NULL);
 	result[index] = '\0';
 	index--;

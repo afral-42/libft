@@ -6,13 +6,13 @@
 /*   By: abounoua <abounoua@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 11:59:47 by abounoua          #+#    #+#             */
-/*   Updated: 2025/11/10 12:00:25 by abounoua         ###   ########lyon.fr   */
+/*   Updated: 2025/11/10 12:09:29 by abounoua         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int is_in_set(char const *set, char c)
+static int	is_in_set(char const *set, char c)
 {
 	size_t	i;
 
@@ -38,7 +38,7 @@ static size_t	get_trimmed_size(char const *s1, char const *set, size_t *index)
 		len_before++;
 	*index = len_before;
 	len_after = 0;
-	while (is_in_set(set, s1[total_len - 1 - len_after]) 
+	while (is_in_set(set, s1[total_len - 1 - len_after])
 		&& len_after != total_len)
 		len_after++;
 	if (len_before == total_len || len_after == total_len)
@@ -65,10 +65,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	result[i] = '\0';
 	return (result);
-}
-
-#include <stdio.h>
-int	main(void)
-{
-	printf("%s", ft_strtrim("     lorem  ipsum    ca va ceci est un test\n continuons le test lol     kwk   wdw    c har                 ", " "));
 }

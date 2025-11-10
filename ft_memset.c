@@ -6,7 +6,7 @@
 /*   By: abounoua <abounoua@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 10:29:53 by abounoua          #+#    #+#             */
-/*   Updated: 2025/11/06 08:39:00 by abounoua         ###   ########lyon.fr   */
+/*   Updated: 2025/11/10 12:09:54 by abounoua         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		((unsigned char *)s)[i]  = (unsigned char)c;
+		((unsigned char *)s)[i] = (unsigned char)c;
 		i++;
 	}
 	return (s);
