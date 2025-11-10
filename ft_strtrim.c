@@ -6,7 +6,7 @@
 /*   By: abounoua <abounoua@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 11:59:47 by abounoua          #+#    #+#             */
-/*   Updated: 2025/11/06 12:28:20 by abounoua         ###   ########lyon.fr   */
+/*   Updated: 2025/11/10 12:00:25 by abounoua         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,22 @@ static int is_in_set(char const *set, char c)
 
 static size_t	get_trimmed_size(char const *s1, char const *set, size_t *index)
 {
-	size_t	len;
-	size_t	i;
+	size_t	total_len;
+	size_t	len_before;
+	size_t	len_after;
 
-	len = 0;
-	i = 0;
-	while (s1[i] != '\0' && is_in_set(set, s1[i]))
-		i++;
-	*index = i;
-	while (s1[i] != '\0' && !is_in_set(set, s1[i]))
-	{
-		i++;
-		len++;
-	}
-	return (len);
+	total_len = ft_strlen(s1);
+	len_before = 0;
+	while (s1[len_before] != '\0' && is_in_set(set, s1[len_before]))
+		len_before++;
+	*index = len_before;
+	len_after = 0;
+	while (is_in_set(set, s1[total_len - 1 - len_after]) 
+		&& len_after != total_len)
+		len_after++;
+	if (len_before == total_len || len_after == total_len)
+		return (0);
+	return (total_len - (len_before + len_after));
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -63,4 +65,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	result[i] = '\0';
 	return (result);
+}
+
+#include <stdio.h>
+int	main(void)
+{
+	printf("%s", ft_strtrim("     lorem  ipsum    ca va ceci est un test\n continuons le test lol     kwk   wdw    c har                 ", " "));
 }
