@@ -12,7 +12,7 @@ all: $(NAME)
 $(NAME): $(OBJS) $(HEADER)
 	ar rcs $@ $(OBJS)
 
-%.o: %.c
+%.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 bonus: $(OBJS) $(BONUS_OBJS) $(HEADER)
