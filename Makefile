@@ -19,10 +19,10 @@ bonus: $(OBJS) $(BONUS_OBJS) $(HEADER)
 	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 clean:
-	rm -f $(NAME)
+	rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(NAME)
 
 re: fclean all
 
