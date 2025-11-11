@@ -6,7 +6,7 @@
 /*   By: abounoua <abounoua@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 13:31:50 by abounoua          #+#    #+#             */
-/*   Updated: 2025/11/05 17:29:07 by abounoua         ###   ########lyon.fr   */
+/*   Updated: 2025/11/11 14:02:59 by abounoua         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	if (!dest || !src)
+	if (!src && !dest)
 		return (NULL);
 	if (src < dest)
 	{
