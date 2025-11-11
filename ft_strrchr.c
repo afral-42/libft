@@ -6,7 +6,7 @@
 /*   By: abounoua <abounoua@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 18:49:51 by abounoua          #+#    #+#             */
-/*   Updated: 2025/11/05 19:03:28 by abounoua         ###   ########lyon.fr   */
+/*   Updated: 2025/11/11 14:35:55 by abounoua         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strrchr(const char *s, int c)
 			result = (char *)s;
 		s++;
 	}
-	if (!c)
+	if ((const char)c == '\0')
 		return ((char *)s);
 	return (result);
 }
