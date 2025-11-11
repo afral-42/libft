@@ -6,7 +6,7 @@
 /*   By: abounoua <abounoua@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 11:59:47 by abounoua          #+#    #+#             */
-/*   Updated: 2025/11/10 12:09:29 by abounoua         ###   ########lyon.fr   */
+/*   Updated: 2025/11/11 14:01:42 by abounoua         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	index;
 	char	*result;
 
+	if (!s1 || !set)
+		return (NULL);
 	len = get_trimmed_size(s1, set, &index);
 	if (!len)
 		return (ft_strdup(""));
 	result = malloc((len + 1) * sizeof(char));
+	if (!result)
+		return (NULL);
 	i = 0;
 	while (i < len)
 	{
