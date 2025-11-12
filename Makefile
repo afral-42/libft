@@ -9,13 +9,13 @@ NAME=libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(HEADER)
+$(NAME): $(OBJS) $(HEADER) Makefile
 	ar rcs $@ $(OBJS)
 
-%.o: %.c $(HEADER)
+%.o: %.c $(HEADER) Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
-bonus: $(OBJS) $(BONUS_OBJS) $(HEADER)
+bonus: $(OBJS) $(BONUS_OBJS) $(HEADER) Makefile
 	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 clean:
